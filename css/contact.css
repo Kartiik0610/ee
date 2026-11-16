@@ -1,0 +1,574 @@
+/* ==========================================================================
+   CONTACT US PAGE STYLES (contact.css)
+   Echaar Equipments Pvt. Ltd. - Industrial Precision Engineering & Solutions
+   ========================================================================== */
+
+/* Main Contact Viewport */
+.contact-viewport {
+  padding: clamp(2rem, 3.5vw, 3.5rem) 4% clamp(3.5rem, 6vw, 5rem);
+  max-width: 1380px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+
+/* Common Section Headers */
+.contact-section-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto clamp(2rem, 3.5vw, 3rem);
+}
+
+.section-tag {
+  display: inline-block;
+  background: rgba(220, 168, 82, 0.12);
+  color: var(--primary-gold-dark, #b88636);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(220, 168, 82, 0.28);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   SECTION 1: QUICK CONTACT CHANNELS (4 CARDS GRID)
+   ========================================================================== */
+.contact-channels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(18px, 2.5vw, 26px);
+}
+
+.channel-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.channel-card:hover {
+  border-color: var(--primary-accent, #DCA852);
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 14px -2px rgba(220, 168, 82, 0.12);
+  transform: translateY(-3px);
+}
+
+.channel-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: #fff9ee;
+  border: 1px solid rgba(220, 168, 82, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+  color: var(--primary-gold-dark, #b88636);
+}
+
+.channel-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.channel-text {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.channel-link {
+  color: var(--primary-gold-dark, #b88636);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  transition: all 0.2s ease;
+}
+
+.channel-link:hover {
+  color: #0f172a;
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   SECTION 2: MAIN INQUIRY FORM & INTERACTIVE MAP (TWO COLUMNS)
+   ========================================================================== */
+.contact-main-layout {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(24px, 3.5vw, 42px);
+  align-items: start;
+}
+
+/* Form Container Card */
+.contact-form-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+.form-header {
+  margin-bottom: 24px;
+}
+
+.form-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.form-subtitle {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.55;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.02em;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: #1e293b;
+  background: #ffffff;
+  transition: all 0.22s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--primary-accent, #DCA852);
+  box-shadow: 0 0 0 3px rgba(220, 168, 82, 0.18);
+  background: #fffdf9;
+}
+
+.form-textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-hint {
+  font-size: 0.76rem;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.btn-form-submit {
+  background: var(--primary-accent, #DCA852);
+  color: #0f172a;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.96rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.24s ease;
+  box-shadow: 0 4px 14px rgba(220, 168, 82, 0.28);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.btn-form-submit:hover {
+  background: #e2b362;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220, 168, 82, 0.4);
+}
+
+/* Success notification message */
+.form-success-banner {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 16px;
+  color: #166534;
+  font-size: 0.9rem;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.form-success-banner.active {
+  display: flex;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: MAP & PLANT ACCESS INFORMATION CARD
+   ========================================================================== */
+.contact-info-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: clamp(24px, 3.5vw, 36px);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Map Container */
+.map-container {
+  width: 100%;
+  height: 280px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  background: #f1f5f9;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Facility Details Box */
+.facility-details-box {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.facility-name {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.facility-address {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+/* Transit Access Chips */
+.transit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.transit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.83rem;
+  color: #334155;
+}
+
+.transit-icon {
+  font-size: 1.1rem;
+}
+
+.transit-text strong {
+  color: #0f172a;
+}
+
+/* Plant Audit CTA */
+.plant-audit-box {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.audit-text {
+  font-size: 0.86rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.btn-schedule-visit {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-schedule-visit:hover {
+  border-color: var(--primary-accent, #DCA852);
+  background: #fff9ee;
+  color: #b88636;
+}
+
+/* ==========================================================================
+   SECTION 3: DEPARTMENTAL DIRECTORY (SPECIALIZED DIVISIONS)
+   ========================================================================== */
+.departments-section {
+  width: 100%;
+}
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(18px, 2.5vw, 26px);
+}
+
+.dept-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.dept-card:hover {
+  border-color: var(--primary-accent, #DCA852);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.06);
+}
+
+.dept-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(220, 168, 82, 0.12);
+  color: var(--primary-gold-dark, #b88636);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.dept-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+
+.dept-desc {
+  font-size: 0.86rem;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.dept-email-link {
+  color: var(--primary-gold-dark, #b88636);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  transition: all 0.2s ease;
+}
+
+.dept-email-link:hover {
+  color: #0f172a;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   SECTION 4: FAQ ACCORDION
+   ========================================================================== */
+.faq-section {
+  width: 100%;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.22s ease;
+}
+
+.faq-item.active {
+  border-color: var(--primary-accent, #DCA852);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 18px 22px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.faq-question-btn:hover {
+  color: var(--primary-gold-dark, #b88636);
+}
+
+.faq-icon {
+  font-size: 1.2rem;
+  color: var(--primary-accent, #DCA852);
+  transition: transform 0.25s ease;
+  line-height: 1;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+  padding: 0 22px;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding-bottom: 20px;
+  transition: max-height 0.35s cubic-bezier(1, 0, 1, 0);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .contact-main-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-channels-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form-card {
+    padding: 24px 18px;
+  }
+
+  .btn-form-submit {
+    width: 100%;
+  }
+
+  .plant-audit-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-schedule-visit {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,880 @@
+/* ==========================================================================
+   HOMEPAGE & CAROUSEL STYLES (style.css)
+   Echaar Equipments Pvt. Ltd.
+   ========================================================================== */
+
+/* Local Custom Fonts */
+@font-face {
+  font-family: 'Rodondo';
+  src: url('../fonts/rodondo/Rodondo.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   HERO CAROUSEL CONTAINER
+   ========================================================================== */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  margin-top: -76px; /* Transparent navbar sits on top of full-view hero */
+  overflow: hidden;
+  background: #090c10;
+}
+
+.carousel-track-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Individual Carousel Slide */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.75s ease;
+  z-index: 1;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/* Background Image with Slow Zoom Ken-Burns Effect */
+.slide-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.04);
+  transition: transform 7s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+.carousel-slide.active .slide-bg-image {
+  transform: scale(1);
+}
+
+/* Dark Gradient Overlays for High-Contrast Text Legibility */
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+              rgba(10, 14, 20, 0.88) 0%, 
+              rgba(10, 14, 20, 0.68) 45%, 
+              rgba(10, 14, 20, 0.25) 100%),
+              linear-gradient(180deg, 
+              rgba(10, 14, 20, 0.45) 0%, 
+              rgba(10, 14, 20, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* Content Container matching full-view layout with navbar offset and arrow clearance */
+.slide-content-container {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 76px clamp(60px, 6vw, 96px) 0; /* Clear clearance ensuring text never overlaps side arrows */
+}
+
+.slide-content {
+  max-width: 1020px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, opacity 0.65s ease 0.15s;
+}
+
+.carousel-slide.active .slide-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Slide Typography: Single line for Construction Equipments and clean hierarchy */
+.slide-title {
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  white-space: nowrap; /* Keeps titles like Construction Equipments strictly on one line */
+}
+
+.slide-description {
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  color: rgba(241, 245, 249, 0.95);
+  line-height: 1.65;
+  margin-bottom: 26px;
+  max-width: 720px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Button (Exact Gold Outline Button from user screenshot) */
+.slide-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid #DCA852;
+  background: rgba(10, 14, 20, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #DCA852;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-gold:hover {
+  background: #DCA852;
+  color: #0f172a;
+  box-shadow: 0 4px 18px rgba(220, 168, 82, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline-gold:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   MINIMALIST RODONDO SIDE ARROWS (ECHAAR PRIMARY COLOUR)
+   ========================================================================== */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  height: auto;
+  padding: 4px 6px; /* Minimal padding */
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  color: #DCA852;
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(2.2rem, 3.4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.25s ease, 
+              text-shadow 0.25s ease, 
+              opacity 0.25s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  opacity: 0.9;
+}
+
+.carousel-arrow.prev-arrow {
+  left: clamp(10px, 1.4vw, 18px); /* Shifted to the far left side */
+}
+
+.carousel-arrow.next-arrow {
+  right: clamp(10px, 1.4vw, 18px); /* Shifted to the far right side */
+}
+
+.carousel-arrow:hover {
+  background: transparent;
+  color: #ffd685;
+  opacity: 1;
+  text-shadow: 0 0 16px rgba(220, 168, 82, 0.85), 0 0 35px rgba(220, 168, 82, 0.45);
+}
+
+.carousel-arrow.prev-arrow:hover {
+  transform: translateY(-50%) translateX(-2px) scale(1.12);
+}
+
+.carousel-arrow.next-arrow:hover {
+  transform: translateY(-50%) translateX(2px) scale(1.12);
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+/* ==========================================================================
+   MINIMALIST CAROUSEL INDICATORS (Floating Dots)
+   ========================================================================== */
+.carousel-indicators {
+  position: absolute;
+  bottom: 12px; /* Taken a bit down as requested */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 0;
+}
+
+.indicator-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.indicator-dot:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(1.2);
+}
+
+.indicator-dot.active {
+  width: 22px;
+  height: 6px;
+  border-radius: 4px;
+  background: #DCA852;
+  box-shadow: 0 0 10px rgba(220, 168, 82, 0.7);
+}
+
+
+/* ==========================================================================
+   HOMEPAGE SHOWCASE SECTION (Full-Bleed Edge-to-Edge - No Margin, No Padding)
+   ========================================================================== */
+.home-showcase-section {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.showcase-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-row {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: 0; /* Zero gap between image and text */
+  align-items: stretch;
+}
+
+/* Balanced 1:1 symmetrical layout for showcase rows */
+.showcase-row.showcase-row-1 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.showcase-row.showcase-row-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.showcase-image-col {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  background: #ffffff;
+}
+
+.showcase-row-1 .showcase-image-col,
+.showcase-row-2 .showcase-image-col {
+  justify-content: stretch;
+}
+
+.showcase-img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top; /* Flush edge-to-edge with 0 gap above */
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.showcase-row-1 .showcase-img {
+  margin: 0;
+}
+
+.showcase-row-2 .showcase-img {
+  margin: 0;
+  object-position: center;
+}
+
+.showcase-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 3.8vw, 52px) clamp(30px, 4.5vw, 64px);
+  background: #ffffff;
+}
+
+.showcase-text-col p {
+  font-size: clamp(0.9rem, 0.95vw, 0.98rem);
+  color: #475569;
+  line-height: 1.68;
+  margin-bottom: 12px;
+}
+
+.showcase-text-col p:last-child {
+  margin-bottom: 0;
+}
+
+/* Showcase Titles (ABOUT US & TRANSFORMING CHALLENGES INTO PRECISION) */
+.showcase-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.4rem, 1.9vw, 1.85rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.showcase-title .text-gold {
+  color: #DCA852;
+}
+
+.showcase-title-bar {
+  width: 44px;
+  height: 3px;
+  background: #DCA852;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   HOMEPAGE LATEST NEWS SECTION (Google Sheets Live Feed)
+   ========================================================================== */
+.home-news-section {
+  padding: clamp(2.4rem, 4vw, 3.5rem) 4%;
+  background: #ffffff;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  position: relative;
+}
+
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.news-section-header {
+  text-align: left;
+  max-width: 850px;
+  margin: 0 0 clamp(1.4rem, 2.2vw, 2rem) 0;
+}
+
+.news-section-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.news-title-bar {
+  width: 44px;
+  height: 3px;
+  background: #DCA852;
+  border-radius: 2px;
+  margin: 0 0 12px 0;
+}
+
+.news-section-subtitle {
+  font-size: clamp(0.88rem, 0.95vw, 0.96rem);
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+  text-align: left;
+}
+
+/* 2 Cards per Row Grid Layout */
+.news-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(18px, 2.2vw, 26px);
+  width: 100%;
+}
+
+/* Left-aligned layout when exactly 1 card */
+.news-cards-grid:has(.news-card:only-child) {
+  grid-template-columns: minmax(auto, 620px);
+  justify-content: start;
+}
+
+/* Individual News Card - Compact Height */
+.news-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 12px rgba(15, 23, 42, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.news-card:hover {
+  border-color: rgba(220, 168, 82, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+}
+
+/* Card Image Header - Compact */
+.news-card-img-wrap {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.news-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-card-img-wrap img {
+  transform: scale(1.03);
+}
+
+/* Card Slim Banner (when no direct image) */
+.news-card-banner {
+  width: 100%;
+  height: 38px;
+  background: linear-gradient(135deg, #090e17 0%, #1e293b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 16px;
+  position: relative;
+  border-bottom: 2px solid #DCA852;
+}
+
+.news-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(220, 168, 82, 0.16);
+  border: 1px solid rgba(220, 168, 82, 0.4);
+  padding: 2px 10px;
+  border-radius: 50px;
+}
+
+.badge-icon {
+  font-size: 0.85rem;
+}
+
+.badge-text {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #DCA852;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Card Body - Tightened Spacing */
+.news-card-body {
+  padding: 16px 20px 14px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.news-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.news-card-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.news-card-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #b88636;
+  background: rgba(220, 168, 82, 0.12);
+  border-radius: 4px;
+}
+
+.news-card-title {
+  font-size: clamp(1.05rem, 1.25vw, 1.2rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.32;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.news-card-excerpt {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 12px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.news-card-action {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.news-read-more-btn {
+  color: #b88636;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.news-read-more-btn:hover {
+  color: #DCA852;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   HOMEPAGE CLIENT LOGOS CAROUSEL SECTION
+   ========================================================================== */
+.home-clients-section {
+  padding: clamp(3rem, 4.5vw, 4.2rem) 0 clamp(2.5rem, 3.8vw, 3.6rem);
+  background: #f8fafc;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  overflow: hidden;
+  position: relative;
+}
+
+.clients-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto clamp(1.8rem, 3vw, 2.5rem);
+  padding: 0 4%;
+}
+
+.clients-section-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.clients-title-bar {
+  width: 44px;
+  height: 3px;
+  background: #DCA852;
+  border-radius: 2px;
+  margin: 0 auto 14px;
+}
+
+.clients-section-subtitle {
+  font-size: clamp(0.9rem, 0.96vw, 1rem);
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* Carousel Outer Viewport */
+.clients-carousel-viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+/* Soft Side Fade Gradients */
+.clients-edge-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(40px, 8vw, 120px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.clients-edge-fade.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #f8fafc 15%, rgba(248, 250, 252, 0));
+}
+
+.clients-edge-fade.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #f8fafc 15%, rgba(248, 250, 252, 0));
+}
+
+/* Continuous Infinite Marquee Track */
+.clients-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(35px, 4.5vw, 65px);
+  width: max-content;
+  animation: scrollClientsMarquee 38s linear infinite;
+  will-change: transform;
+}
+
+.clients-carousel-viewport:hover .clients-carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollClientsMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Individual Client Logo Item (Clean Borderless Floating Logos) */
+.client-logo-card {
+  width: auto;
+  min-width: 140px;
+  max-width: 200px;
+  height: 80px;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.client-logo-card:hover {
+  transform: scale(1.08);
+}
+
+.client-logo-img-box {
+  height: 65px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-logo-img-box img {
+  max-width: 175px;
+  max-height: 56px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.client-logo-card:hover .client-logo-img-box img {
+  transform: scale(1.06);
+}
+
+
+
+/* ==========================================================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-carousel {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 580px;
+    margin-top: -66px;
+  }
+  .showcase-row,
+  .showcase-row.showcase-row-1,
+  .showcase-row.showcase-row-2 {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-height: auto;
+  }
+  .showcase-row.reverse-mobile {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .showcase-image-col {
+    width: 100%;
+    height: auto;
+    min-height: 240px;
+    margin: 0;
+    padding: 0;
+  }
+  .showcase-img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 240px;
+    max-height: 400px;
+    object-fit: cover;
+    margin: 0 !important;
+    display: block;
+  }
+  .showcase-text-col {
+    padding: clamp(30px, 5vw, 48px) clamp(20px, 4vw, 36px);
+  }
+  .carousel-arrow {
+    font-size: 2.6rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slide-title {
+    white-space: normal;
+    font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+  }
+  .news-cards-grid,
+  .news-cards-grid:has(.news-card:only-child) {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .news-card-body {
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-carousel {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 520px;
+    margin-top: -66px;
+  }
+  .slide-content-container {
+    padding: 66px 38px 0; /* Ensures clear separation from side arrows on mobile */
+  }
+  .slide-title {
+    font-size: 1.65rem;
+    white-space: normal;
+    margin-bottom: 12px;
+  }
+  .slide-description {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+  .btn-outline-gold {
+    padding: 7px 20px;
+    font-size: 0.78rem;
+    border-radius: 50px;
+  }
+  .carousel-arrow {
+    font-size: 2rem;
+    padding: 4px 6px;
+  }
+  .carousel-arrow.prev-arrow {
+    left: 6px;
+  }
+  .carousel-arrow.next-arrow {
+    right: 6px;
+  }
+  .showcase-img {
+    width: 100%;
+    height: auto;
+  }
+  .client-logo-card {
+    min-width: 110px;
+    height: 55px;
+    padding: 6px 10px;
+  }
+  .client-logo-img-box {
+    height: 44px;
+  }
+  .client-logo-img-box img {
+    max-width: 125px;
+    max-height: 40px;
+  }
+}

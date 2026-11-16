@@ -1,0 +1,122 @@
+/* ==========================================================================
+   CLIENTS PAGE STYLES (clients.css)
+   Echaar Equipments Pvt. Ltd.
+   ========================================================================== */
+
+.clients-viewport {
+  padding: clamp(2rem, 3.5vw, 3rem) 4% clamp(3rem, 5vw, 4.5rem);
+  max-width: 1380px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Category Section Header */
+.client-group-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 4.5vw, 3.5rem);
+}
+
+.client-group-title {
+  display: inline-block;
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.client-group-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 3px;
+  background-color: var(--primary-accent, #DCA852);
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   CLIENTS LOGO GRID & CARDS (Clean Borderline Only - No Thick Top, No Jump Hover)
+   ========================================================================== */
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: clamp(18px, 2.5vw, 28px);
+}
+
+.client-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 32px 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 180px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  position: relative;
+  transition: border-color 0.25s ease;
+}
+
+/* Hover: Only change the borderline color cleanly (no lift, no thick top, no shadows) */
+.client-card:hover {
+  border-color: var(--primary-accent, #DCA852);
+}
+
+/* Image Wrapper */
+.client-card-img-wrapper {
+  height: 75px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.client-card img {
+  max-width: 175px;
+  max-height: 62px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Client Name */
+.client-card .client-name {
+  margin-top: 14px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #334155;
+  line-height: 1.35;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .clients-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .client-card {
+    min-height: 155px;
+    padding: 22px 14px 18px;
+  }
+  .client-card-img-wrapper {
+    height: 60px;
+  }
+  .client-card img {
+    max-height: 48px;
+    max-width: 135px;
+  }
+  .client-card .client-name {
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
+}

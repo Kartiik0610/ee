@@ -1,0 +1,811 @@
+/* ==========================================================================
+   CAREERS PAGE STYLES (careers.css)
+   Echaar Equipments Pvt. Ltd. - Industrial Precision Engineering & Solutions
+   ========================================================================== */
+
+/* Main Viewport Container */
+.careers-viewport {
+  padding: clamp(2rem, 3.5vw, 3.5rem) 4% clamp(3.5rem, 6vw, 5rem);
+  max-width: 1380px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+
+/* Common Section Headers */
+.careers-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+}
+
+.section-tag {
+  display: inline-block;
+  background: rgba(220, 168, 82, 0.12);
+  color: var(--primary-gold-dark, #b88636);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(220, 168, 82, 0.28);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   SECTION 1: CULTURE & VALUES GRID
+   ========================================================================== */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(18px, 2.2vw, 26px);
+}
+
+.value-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.value-card:hover {
+  border-color: var(--primary-accent, #DCA852);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(220, 168, 82, 0.1);
+}
+
+.value-icon-box {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(220, 168, 82, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.value-card-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.01em;
+}
+
+.value-card-text {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   SECTION 2: CURRENT JOB OPENINGS
+   ========================================================================== */
+.careers-openings-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: clamp(24px, 3.5vw, 42px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.openings-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* Jobs Container & Grid */
+.jobs-container {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(24px, 2.8vw, 32px);
+  width: 100%;
+}
+
+/* Individual Job Card */
+.job-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: clamp(24px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  position: relative;
+}
+
+.job-card:hover {
+  border-color: var(--primary-accent, #DCA852);
+  box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 14px -2px rgba(220, 168, 82, 0.12);
+  transform: translateY(-2px);
+}
+
+.job-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.job-badges-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.job-dept-badge {
+  background: rgba(220, 168, 82, 0.12);
+  color: var(--primary-gold-dark, #b88636);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.job-vacancies-badge {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.job-vacancies-badge::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.job-post-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.35rem, 2vw, 1.6rem);
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+/* Key Requirements Chips Grid */
+.job-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+}
+
+.job-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.job-spec-item .spec-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.job-spec-item .spec-value {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.job-desc-block {
+  margin-bottom: 20px;
+}
+
+.job-desc-heading {
+  display: block;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.job-desc-text,
+.job-desc-preview {
+  font-size: 0.89rem;
+  color: #475569;
+  line-height: 1.62;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Job Action Buttons */
+.job-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+  padding-top: 20px;
+  border-top: 1px solid #f1f5f9;
+  flex-wrap: wrap;
+}
+
+.btn-job-apply {
+  background: var(--primary-accent, #DCA852);
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 11px 30px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.22s ease;
+  box-shadow: 0 2px 6px rgba(220, 168, 82, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-job-apply:hover {
+  background: #e2b362;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 168, 82, 0.3);
+}
+
+.btn-job-details {
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-job-details:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* Loader and Empty State */
+.careers-loader-box {
+  grid-column: 1 / -1;
+  padding: 48px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.careers-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(220, 168, 82, 0.2);
+  border-top-color: var(--primary-accent, #DCA852);
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+}
+
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+.jobs-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 42px 20px;
+  background: #ffffff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+}
+
+.jobs-empty-state .empty-icon {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.jobs-empty-state h3 {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 1.3rem;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.jobs-empty-state p {
+  color: #64748b;
+  font-size: 0.92rem;
+  max-width: 500px;
+  margin: 0 auto 16px;
+}
+
+.btn-reset-dept {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-reset-dept:hover {
+  background: var(--primary-accent, #DCA852);
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   SECTION 3: HIRING PROCESS
+   ========================================================================== */
+.hiring-process-section {
+  padding: clamp(1.5rem, 2.5vw, 2.5rem) 0;
+}
+
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+  position: relative;
+}
+
+.process-step-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 26px 22px;
+  position: relative;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.process-step-card:hover {
+  border-color: var(--primary-accent, #DCA852);
+  transform: translateY(-3px);
+}
+
+.step-number {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary-accent, #DCA852);
+  opacity: 0.75;
+  display: block;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.step-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.step-text {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   SECTION 4: SPONTANEOUS APPLICATION CTA BANNER
+   ========================================================================== */
+.careers-cta-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 20px;
+  padding: clamp(2rem, 4vw, 3.2rem) clamp(1.5rem, 4vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.careers-cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 168, 82, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-content {
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+
+.cta-desc {
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-btn-primary {
+  background: var(--primary-accent, #DCA852);
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 13px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(220, 168, 82, 0.35);
+  transition: all 0.24s ease;
+  white-space: nowrap;
+}
+
+.cta-btn-primary:hover {
+  background: #e2b362;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 168, 82, 0.45);
+}
+
+.cta-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 13px 22px;
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  transition: all 0.22s ease;
+  white-space: nowrap;
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   JOB DETAILS MODAL
+   ========================================================================== */
+.job-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.job-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.job-modal-dialog {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.25);
+  display: flex;
+  flex-direction: column;
+  transform: scale(0.96) translateY(12px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.job-modal-backdrop.is-open .job-modal-dialog {
+  transform: scale(1) translateY(0);
+}
+
+.job-modal-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 5;
+}
+
+.modal-dept-badge {
+  background: rgba(220, 168, 82, 0.12);
+  color: var(--primary-gold-dark, #b88636);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.modal-job-title {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.25;
+}
+
+.job-modal-close-btn {
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.job-modal-close-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.job-modal-body {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Modal Highlights Bar */
+.job-modal-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.modal-meta-card {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.modal-meta-card .meta-label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.modal-meta-card .meta-val {
+  font-size: 0.88rem;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.job-modal-desc-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.desc-heading {
+  font-family: 'Rodondo', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.desc-content {
+  font-size: 0.92rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.job-modal-footer {
+  padding: 18px 28px 24px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  position: sticky;
+  bottom: 0;
+  border-radius: 0 0 20px 20px;
+}
+
+.btn-apply-primary {
+  flex: 1.4;
+  background: var(--primary-accent, #DCA852);
+  color: #0f172a;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.22s ease;
+  box-shadow: 0 2px 8px rgba(220, 168, 82, 0.25);
+}
+
+.btn-apply-primary:hover {
+  background: #e2b362;
+  transform: translateY(-1px);
+}
+
+.btn-apply-email {
+  flex: 1;
+  background: #f8fafc;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 11px 18px;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.btn-apply-email:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablets & Mobile)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .jobs-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .job-modal-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .careers-viewport {
+    padding: 2rem 5% 3.5rem;
+    gap: 2.5rem;
+  }
+
+  .careers-openings-section {
+    padding: 20px 16px;
+  }
+
+  .jobs-container {
+    grid-template-columns: 1fr;
+  }
+
+  .job-specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-modal-footer {
+    flex-direction: column;
+    padding: 16px 20px 20px;
+  }
+
+  .btn-apply-primary,
+  .btn-apply-email {
+    width: 100%;
+  }
+
+  .careers-cta-banner {
+    padding: 1.8rem 1.4rem;
+  }
+
+  .cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .cta-btn-primary,
+  .cta-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}

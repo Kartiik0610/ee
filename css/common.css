@@ -1,0 +1,280 @@
+/* Local Custom Fonts */
+@font-face {
+  font-family: 'Rodondo';
+  src: url('../fonts/rodondo/Rodondo.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rodondo';
+  src: url('../fonts/rodondo/Rodondo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rodondo';
+  src: url('../fonts/rodondo/Rodondo.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Resolve Sans';
+  src: url('../fonts/resolve_sans/Resolve-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand Accent Colors */
+  --primary-accent: #DCA852;
+  --primary-gold: #DCA852;
+  --primary-gold-dark: #b88636;
+  --primary-gold-light: rgba(220, 168, 82, 0.12);
+  --primary-gold-glow: rgba(220, 168, 82, 0.35);
+  --brand-gold: #DCA852;
+
+  /* Typography Colors */
+  --text-dark: #1e293b;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-light: #f8fafc;
+  --text-dark-headings: #0f172a;
+
+  /* Background Colors */
+  --bg-body: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-dark: #0d1117;
+  --glass-dark: rgba(18, 22, 28, 0.82);
+  --glass-border-dark: rgba(255, 255, 255, 0.1);
+
+  /* Glassmorphism Defaults */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(226, 232, 240, 0.8);
+  --glass-dropdown-bg: rgba(255, 255, 255, 0.96);
+  --shadow-subtle: 0 4px 20px -2px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 10px 30px -4px rgba(15, 23, 42, 0.05), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+  --shadow-hover: 0 20px 35px -6px rgba(15, 23, 42, 0.1), 0 8px 16px -4px rgba(220, 168, 82, 0.12);
+
+  /* Font Families */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Layout */
+  --navbar-height: 76px;
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 16px;
+  --border-radius-full: 9999px;
+  --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Global Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-body);
+  color: var(--text-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   ECHAAR SPECIAL SCROLLBAR (Precision Industrial Gold & Deep Slate Identity)
+   ========================================================================== */
+/* Standard modern Firefox scrollbar */
+html, body, * {
+  scrollbar-width: thin;
+  scrollbar-color: #DCA852 #0b0f17;
+}
+
+/* Chrome, Edge, Safari WebKit Global Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0f17; /* Signature Echaar Dark Slate Track */
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #F3D28A 0%, #DCA852 50%, #B88636 100%);
+  border-radius: 9999px;
+  border: 2px solid #0b0f17; /* Creates polished floating cylinder effect */
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 0 8px rgba(220, 168, 82, 0.35);
+  transition: all 0.25s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FFE8A8 0%, #E8B55F 50%, #C9953F 100%);
+  border-color: #0b0f17;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6), 0 0 16px rgba(220, 168, 82, 0.85);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #DCA852 0%, #A6762B 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: #0b0f17;
+}
+
+/* Echaar Special Scroll Reading Progress Line */
+.echaar-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #B88636 0%, #DCA852 50%, #FFE099 100%);
+  box-shadow: 0 0 10px rgba(220, 168, 82, 0.9), 0 0 4px #DCA852;
+  z-index: 10005;
+  pointer-events: none;
+  transition: width 0.06s ease-out;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* ==========================================================================
+   REUSABLE INNER PAGE TITLE BANNER
+   ========================================================================== */
+.page-title-banner {
+  position: relative;
+  width: 100%;
+  min-height: clamp(130px, 16vw, 175px);
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 60%, #e2e8f0 100%);
+  display: flex;
+  align-items: center;
+  padding: clamp(1.6rem, 3vw, 2.4rem) 4%;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+/* Subtle decorative industrial mesh background */
+.page-title-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(220, 168, 82, 0.08) 0%, transparent 40%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 800px;
+}
+
+.banner-header-flex {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.banner-icon {
+  width: clamp(42px, 4.5vw, 54px);
+  height: clamp(42px, 4.5vw, 54px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-accent);
+  background: rgba(220, 168, 82, 0.12);
+  border: 1px solid rgba(220, 168, 82, 0.25);
+  border-radius: var(--border-radius-md);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(220, 168, 82, 0.15);
+}
+
+.banner-icon svg {
+  width: 60%;
+  height: 60%;
+  stroke: var(--primary-accent);
+  stroke-width: 2;
+  fill: none;
+}
+
+.banner-title {
+  font-family: 'Rodondo', var(--font-sans);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  font-weight: 700;
+  color: var(--text-dark-headings);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.banner-subtitle {
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.5;
+  max-width: 650px;
+}
+
+/* Translucent Executive Watermark in Banner (Right Bottom Anchored) */
+.banner-watermark {
+  position: absolute;
+  right: -10px;
+  bottom: -24px;
+  top: auto;
+  transform: none;
+  font-family: 'Rodondo', sans-serif;
+  font-size: clamp(6.5rem, 16vw, 13.5rem);
+  font-weight: normal;
+  letter-spacing: 0.03em;
+  color: rgba(203, 213, 225, 0.45);
+  line-height: 0.76;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .page-title-banner {
+    padding: 1.75rem 5%;
+    min-height: 140px;
+  }
+  .banner-watermark {
+    display: none; /* Hide large watermark on mobile for clean look */
+  }
+  .banner-header-flex {
+    gap: 12px;
+  }
+}
